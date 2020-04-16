@@ -9,3 +9,6 @@ RUN pwsh -c 'Set-PowerCLIConfiguration -Scope Session -WebOperationTimeoutSecond
 RUN tdnf install -y git && \
     tdnf install -y gawk
 
+COPY ./s.ps1 /s.ps1
+
+ENTRYPOINT ["./s.ps1"]
