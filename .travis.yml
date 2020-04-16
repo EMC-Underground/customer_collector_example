@@ -1,0 +1,10 @@
+sudo: required
+language: python
+services:
+  - docker
+
+before_install:
+  - echo $DOCKER_PASSWORD | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t nctiggy/customer_collector_overlord .
+script:
+  - docker push nctiggy/customer_collector_overlord
